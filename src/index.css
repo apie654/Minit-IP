@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply bg-slate-100 text-slate-900 antialiased font-sans;
+  }
+}
+
+/* Print CSS to render the official looking A4 paper correctly */
+@media print {
+  /* Hide interactive/editing UI elements */
+  header,
+  aside,
+  nav,
+  button,
+  .print\:hidden,
+  .no-print {
+    display: none !important;
+  }
+
+  /* Reset layout constraints on root/parent elements to allow continuous page printing */
+  html,
+  body,
+  #root,
+  #root > div,
+  main,
+  main > div,
+  .flex-1 {
+    display: block !important;
+    position: static !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  /* Style the printable area to flow naturally */
+  #printable-area {
+    display: block !important;
+    position: relative !important;
+    width: 21cm !important;
+    min-height: 29.7cm !important;
+    margin: 0 auto !important;
+    padding: 2cm !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: white !important;
+    color: black !important;
+    page-break-after: auto;
+    font-family: Tahoma, sans-serif !important;
+  }
+
+  /* Specific element print settings */
+  h1, h4 {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Ensure Tahoma 11pt by default for all printed text */
+  #printable-area td, #printable-area div, #printable-area span, #printable-area p {
+    font-family: Tahoma, sans-serif !important;
+  }
+
+  /* Keep Times New Roman for recipient heading */
+  #printable-area .recipient-heading {
+    font-family: "Times New Roman", Times, serif !important;
+  }
+
+  /* Ensure signature section doesn't break awkwardly */
+  .print-avoid-break {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+}

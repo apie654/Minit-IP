@@ -1,0 +1,6 @@
+{
+  "name": "Penjana Minit Siasatan",
+  "description": "Aplikasi penjana minit kertas siasatan polis (PDRM) berdasarkan format minit rasmi untuk pegawai penyiasat (IO) dan pegawai undang-undang (DCO).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
